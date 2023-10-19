@@ -1,7 +1,7 @@
 "use client";
 
+import { SimilarProducts } from "@/app/components";
 import MainLayout from "../../layouts/MainLayout";
-// import SimilarProducts from "../../components/SimilarProducts";
 import { useEffect, useState } from "react";
 // import useIsLoading from "../../hooks/useIsLoading";
 // import { useCart } from "../../context/cart";
@@ -110,7 +110,7 @@ export default function Product({ params }) {
           </div>
         </div>
 
-        {/* <SimilarProducts /> */}
+        <SimilarProducts />
       </MainLayout>
     </>
   );
