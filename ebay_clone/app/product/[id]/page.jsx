@@ -79,10 +79,10 @@ export default function Product({ params }) {
                   <button
                     onClick={() => {
                       if (cart.isItemAdded) {
-                        cart.removeFromCart(product);
+                        cart.removeFromCart(products);
                         toast.info("Removed from cart", { autoClose: 3000 });
                       } else {
-                        cart.addToCart(product);
+                        cart.addToCart(products);
                         toast.success("Added to cart", { autoClose: 3000 });
                       }
                     }}
