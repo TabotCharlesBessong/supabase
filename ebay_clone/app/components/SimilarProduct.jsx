@@ -5,50 +5,28 @@ import ProductComp from "./Product";
 import { BiLoader } from "react-icons/bi";
 
 export default function SimilarProducts() {
-  // const [products, setProducts] = useState([]);
+  const [products, setProducts] = useState([]);
 
-  const products = [
-    {
-      id: 1,
-      url: "images/banner/1.png",
-      title: "Product 1",
-      price: 999,
-    },
-    {
-      id: 2,
-      url: "images/banner/2.png",
-      title: "Product 2",
-      price: 1499,
-    },
-    {
-      id: 3,
-      url: "images/banner/3.png",
-      title: "Product 3",
-      price: 799,
-    },
-    // Add more dummy products as needed
-  ];
+  const getRandomProducts = async () => {
+    try {
+      const response = await fetch("/api/products/get-random");
+      const result = await response.json();
 
-  // const getRandomProducts = async () => {
-  //   try {
-  //     const response = await fetch("/api/products/get-random");
-  //     const result = await response.json();
+      if (result) {
+        setProducts(result);
+        return;
+      }
 
-  //     if (result) {
-  //       setProducts(result);
-  //       return;
-  //     }
+      setProducts([]);
+    } catch (error) {
+      console.log(error);
+      alert(error);
+    }
+  };
 
-  //     setProducts([]);
-  //   } catch (error) {
-  //     console.log(error);
-  //     alert(error);
-  //   }
-  // };
-
-  // useEffect(() => {
-  //   getRandomProducts();
-  // }, []);
+  useEffect(() => {
+    getRandomProducts();
+  }, []);
 
   return (
     <>
