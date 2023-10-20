@@ -20,7 +20,7 @@ export default function CartItem({ product }) {
     <>
       <div className="relative flex justify-start my-2 border w-full p-6">
         <img
-          src={product?.url + "/150"}
+          src={product?.url}
           className="rounded-md w-[150px] h-[150px]"
         />
 
