@@ -1,17 +1,17 @@
 "use client";
 
 import MainLayout from "../layouts/MainLayout";
-// import { useCart } from "../context/cart";
+import { useCart } from "../context/cart";
 import { useEffect } from "react";
 import { useRouter } from "next/navigation";
-// import useIsLoading from "../hooks/useIsLoading";
+import useIsLoading from "../hooks/useIsLoading";
 import { CartItem, SimilarProducts } from "../components";
 import ClientOnly from "../components/ClientOnly";
 
 export default function Cart() {
   const router = useRouter();
-  // const cart = useCart();
-  const cart = {}
+  const cart = useCart();
+  // const cart = {}
 
   useEffect(() => {
     useIsLoading(true);

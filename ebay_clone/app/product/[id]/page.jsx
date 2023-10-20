@@ -4,12 +4,12 @@ import { SimilarProducts } from "@/app/components";
 import MainLayout from "../../layouts/MainLayout";
 import { useEffect, useState } from "react";
 // import useIsLoading from "../../hooks/useIsLoading";
-// import { useCart } from "../../context/cart";
+import { useCart } from "../../context/cart";
 import { toast } from "react-toastify";
 
 export default function Product({ params }) {
-  // const cart = useCart();
-  const cart = {};
+  const cart = useCart();
+  // const cart = {};
 
   const products = {
     id: 1,

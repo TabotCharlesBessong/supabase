@@ -5,16 +5,16 @@ import { BsChevronDown } from "react-icons/bs";
 import { AiOutlineShoppingCart } from "react-icons/ai";
 import { useUser } from "../../context/user";
 import { useEffect, useState } from "react";
-// import { useCart } from "../../context/cart";
+import { useCart } from "../../context/cart";
 import { useRouter } from "next/navigation";
 import ClientOnly from "../../components/ClientOnly";
 
 export default function TopMenu() {
   const router = useRouter();
   const user = useUser();
-  // const cart = useCart();
+  const cart = useCart();
   console.log(user)
-  const [cart, setCart] = useState({})
+  // const [cart, setCart] = useState({})
   const [isMenu, setIsMenu] = useState(false);
 
   // useEffect(() => {
@@ -109,15 +109,15 @@ export default function TopMenu() {
               <li className="px-3 hover:underline cursor-pointer">
                 <div onClick={() => router.push("/cart")} className="relative">
                   <AiOutlineShoppingCart size={22} />
-                  {/* {cart.cartCount() > 0 ? ( */}
+                  {cart.cartCount() > 0 ? (
                     <div className="absolute text-[10px] -top-[2px] -right-[5px] bg-red-500 w-[14px] h-[14px] rounded-full text-white">
                       <div className=" flex items-center justify-center -mt-[1px]">
-                        {/* {cart.cartCount()} */} 0
+                        {cart.cartCount()}
                       </div>
                     </div>
-                  {/* // ) : (
-                  //   <div></div>
-                  // )} */}
+                   ) : (
+                    <div></div>
+                  )}
                 </div>
               </li>
             </ClientOnly>
