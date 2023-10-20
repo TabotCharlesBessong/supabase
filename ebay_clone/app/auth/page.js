@@ -6,7 +6,16 @@ import { ThemeSupa } from "@supabase/auth-ui-shared";
 import Link from "next/link";
 
 export default function AuthPage() {
-  const supabase = createClientComponentClient();
+  const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL;
+  const supabaseKey = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY;
+
+  if (!supabaseUrl || !supabaseKey) {
+    throw new Error(
+      "Supabase URL and Supabase Anon Key are required. Please provide these environment variables."
+    );
+  }
+
+  const supabase = createClientComponentClient(supabaseUrl, supabaseKey);
 
   return (
     <>
