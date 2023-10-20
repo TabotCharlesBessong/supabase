@@ -1,7 +1,7 @@
-import { Inter } from "next/font/google";
-import "./globals.css";
 import { ToastContainer } from "react-toastify";
-import "react-toastify/dist/ReactToastify.min.css"
+import "react-toastify/dist/ReactToastify.min.css";
+import UserProvider from "./context/user";
+import "./globals.css";
 
 export const metadata = {
   title: "Create Next App",
@@ -13,7 +13,7 @@ export default function RootLayout({ children }) {
     <html lang="en">
       <body>
         <ToastContainer />
-        {children}
+        <UserProvider>{children}</UserProvider>
       </body>
     </html>
   );
