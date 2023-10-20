@@ -13,6 +13,7 @@ export default function TopMenu() {
   const router = useRouter();
   const user = useUser();
   // const cart = useCart();
+  console.log(user)
   const [cart, setCart] = useState({})
   const [isMenu, setIsMenu] = useState(false);
 
@@ -63,8 +64,8 @@ export default function TopMenu() {
                                 `}
               >
                 <div>
-                  <div className="flex items-center justify-start gap-1 p-3">
-                    <img width={50} src={user?.picture} />
+                  <div className="flex items-center justify-start gap-1 p-3 pl-2">
+                    <img width={50} src={user?.picture || "/images/uk.png"} />
                     <div className="font-bold text-[13px]">{user?.name}</div>
                   </div>
                 </div>

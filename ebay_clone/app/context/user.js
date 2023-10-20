@@ -37,7 +37,7 @@ const Provider = ({ children }) => {
       setUser(theUser)
       setId(theUser.id)
       setEmail(theUser.email)
-      setName(theUser.identities[0].identity_data.name)
+      setName(theUser.email.split("@")[0]);
       setPicture(theUser.identities[0].identity_data.picture)
     }
   }
