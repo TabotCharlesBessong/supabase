@@ -1,10 +1,9 @@
 "use client";
-// import { useCart } from "../context/cart";
+import { useCart } from "../context/cart";
 import { toast } from "react-toastify";
 
 export default function CartItem({ product }) {
-  // const cart = useCart();
-  const cart = {}
+  const cart = useCart();
 
   const removeItemFromCart = () => {
     let res = confirm(
@@ -20,7 +19,7 @@ export default function CartItem({ product }) {
     <>
       <div className="relative flex justify-start my-2 border w-full p-6">
         <img
-          src={product?.url}
+          src={product?.url + "/150"}
           className="rounded-md w-[150px] h-[150px]"
         />
 
